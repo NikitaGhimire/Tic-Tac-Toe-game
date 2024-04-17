@@ -7,6 +7,15 @@
   <link rel="stylesheet" href="/index.css">
 </head>
 <body>
+  <div class="players">
+    <label for="player1">Player 1 Name:</label>
+    <input type="text" id="player1-input" placeholder="Player 1">
+    <br>
+    <label for="player2">Player 2 Name:</label>
+    <input type="text" id="player2-input" placeholder="Player 2">
+    <br>
+    <button id="start-button">Start/Restart Game</button>
+  </div>
   <div class="grid">
     <!-- Create 9 cells for the 3x3 grid -->
     <div class="cell">1</div>
@@ -19,6 +28,9 @@
     <div class="cell">8</div>
     <div class="cell">9</div>
 </div>
+
+<div id="game-result"></div>
+
   <script src="index.js"></script>
 </body>
 </html>
