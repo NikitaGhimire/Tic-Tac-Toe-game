@@ -132,5 +132,10 @@ const Display = {
           });
           boardContainer.appendChild(cellElement);
       });
-  }
+  },
+  // Function to update player names on the webpage
+    updatePlayerNames: function(player1Name, player2Name) {
+        document.getElementById('player1-name').textContent = player1Name;
+        document.getElementById('player2-name').textContent = player2Name;
+    },
 };
