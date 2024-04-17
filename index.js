@@ -104,9 +104,17 @@ const Game = {
     // Randomly select an empty cell
     let randomIndex = Math.floor(Math.random() * emptyCells.length);
     let selectedCell = emptyCells[randomIndex];
-    // Make the computer move
+
+    //Add a delay to simulate computer's "thinking" time
     setTimeout(() => {
+      // Make the computer move
         Game.makeMove(selectedCell);
     }, 1000); // Add a delay to simulate computer's "thinking" time
   }
 };
+
+
+// Example usage:
+Game.init("Player 1", "Player 2");
+Game.makeMove(0); // Player 1 makes a move on cell 0
+Game.makeMove(1); // Player 2 makes a move on cell 1
