@@ -113,8 +113,24 @@ const Game = {
   }
 };
 
+// Display object
+const Display = {
+  // Function to render the game board to the webpage
+  renderBoard: function(board) {
+      const boardContainer = document.querySelector('.board');
+      boardContainer.innerHTML = ''; // Clear previous content
 
-// Example usage:
-Game.init("Player 1", "Player 2");
-Game.makeMove(0); // Player 1 makes a move on cell 0
-Game.makeMove(1); // Player 2 makes a move on cell 1
+      board.forEach((cell, index) => {
+          const cellElement = document.createElement('div');
+          cellElement.classList.add('cell');
+          cellElement.textContent = cell;
+          cellElement.addEventListener('click', () => {
+              // Add logic to handle player's move when a cell is clicked
+              if (cell === '') {
+                  Game.makeMove(index);
+              }
+          });
+          boardContainer.appendChild(cellElement);
+      });
+  }
+};
