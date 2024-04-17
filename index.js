@@ -138,4 +138,9 @@ const Display = {
         document.getElementById('player1-name').textContent = player1Name;
         document.getElementById('player2-name').textContent = player2Name;
     },
+
+  // Function to update game result display
+  updateGameResult: function(result) {
+    document.getElementById('game-result').textContent = result;
+},
 };
