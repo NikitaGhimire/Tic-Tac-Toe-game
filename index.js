@@ -142,5 +142,19 @@ const Display = {
   // Function to update game result display
   updateGameResult: function(result) {
     document.getElementById('game-result').textContent = result;
-},
+  },
+
+// Function to initialize the game interface
+init: function() {
+    // Add event listener to start/restart button
+    document.getElementById('start-button').addEventListener('click', () => {
+        // Retrieve player names from input fields
+        const player1Name = document.getElementById('player1-input').value;
+        const player2Name = document.getElementById('player2-input').value;
+        // Initialize the game with player names
+        Game.init(player1Name, player2Name);
+        // Render the initial game board
+        this.renderBoard(Gameboard.board);
+    });
+}
 };
