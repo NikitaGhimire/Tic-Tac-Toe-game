@@ -49,7 +49,11 @@ const Gameboard = {
 //Game control object
 const Game = {
   currentPlayer: null,
+
   players: [], // Array to store player objects
+
+  computerPlayer: null, // Store computer player object
+
   // Method to initialize the game
   init: function(player1Name, player2Name) {
       // Create player objects
@@ -59,6 +63,8 @@ const Game = {
       Gameboard.resetBoard();
       // Set the first player as the current player
       this.currentPlayer = this.players[0];
+      // Set the computer player
+      this.computerPlayer = this.players[1];
   },
   // Method to switch players
   switchPlayer: function() {
@@ -76,8 +82,31 @@ const Game = {
           }
           // Switch to the next player
           this.switchPlayer();
+          // If the current player is the computer, make a move
+            if (this.currentPlayer === this.computerPlayer) {
+                this.computerMove();
+            } 
       } else {
           console.log("This cell is already occupied. Please choose another cell.");
       }
+  },
+
+  // Method for computer's move
+  computerMove: function() {
+    // Implement logic for computer's move here
+    // For example, randomly select an empty cell
+    let emptyCells = [];
+    for (let i = 0; i < Gameboard.board.length; i++) {
+        if (Gameboard.isCellEmpty(i)) {
+            emptyCells.push(i);
+        }
+    }
+    // Randomly select an empty cell
+    let randomIndex = Math.floor(Math.random() * emptyCells.length);
+    let selectedCell = emptyCells[randomIndex];
+    // Make the computer move
+    setTimeout(() => {
+        Game.makeMove(selectedCell);
+    }, 1000); // Add a delay to simulate computer's "thinking" time
   }
 };
