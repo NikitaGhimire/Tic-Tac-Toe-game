@@ -45,3 +45,39 @@ const Gameboard = {
     return this.board.every(cell => cell !== '');
   }
 };
+
+//Game control object
+const Game = {
+  currentPlayer: null,
+  players: [], // Array to store player objects
+  // Method to initialize the game
+  init: function(player1Name, player2Name) {
+      // Create player objects
+      this.players.push(new Player(player1Name, 'X'));
+      this.players.push(new Player(player2Name, 'O'));
+      // Reset the game board
+      Gameboard.resetBoard();
+      // Set the first player as the current player
+      this.currentPlayer = this.players[0];
+  },
+  // Method to switch players
+  switchPlayer: function() {
+      this.currentPlayer = (this.currentPlayer === this.players[0]) ? this.players[1] : this.players[0];
+  },
+  // Method to handle player's move
+  makeMove: function(cellIndex) {
+      if (Gameboard.updateCell(cellIndex, this.currentPlayer.symbol)) {
+          if (Gameboard.checkWin(this.currentPlayer.symbol)) {
+              console.log(`${this.currentPlayer.name} wins!`);
+              return;
+          } else if (Gameboard.isBoardFull()) {
+              console.log("It's a draw!");
+              return;
+          }
+          // Switch to the next player
+          this.switchPlayer();
+      } else {
+          console.log("This cell is already occupied. Please choose another cell.");
+      }
+  }
+};
