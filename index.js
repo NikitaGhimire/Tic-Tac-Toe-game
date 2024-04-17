@@ -1,3 +1,8 @@
+// Player constructor function
+function Player(name, symbol) {
+    this.name = name;
+    this.symbol = symbol;
+}
 
 //gameboard object
 const Gameboard = {
