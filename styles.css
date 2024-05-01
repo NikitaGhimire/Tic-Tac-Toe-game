@@ -1,0 +1,85 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set body background color and center content */
+body {
+  background-color: plum;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+/* Style for the players section */
+.players {
+  margin-bottom: 20px;
+  
+}
+
+.players label {
+  font-size: 18px;
+}
+
+.players input[type="text"] {
+  font-size: 16px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.players button {
+  font-size: 16px;
+  padding: 8px 16px;
+  background-color: purple;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  
+}
+
+.players button:hover {
+  background-color: #45a049;
+}
+
+/* Style for the game grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  margin: 10px;
+}
+
+.cell {
+  font-size: 24px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+}
+
+.cell:hover {
+  background-color: #f0f0f0;
+}
+
+#game-result {
+  color: purple;
+  font: 40px bolder;
+}
+
+/* CSS for fixed size player icons */
+.player-icon {
+  width: 50px; /* Set the width of the player icons */
+  height: 50px; /* Set the height of the player icons */
+  max-width: 100%; /* Ensure the icons do not exceed the cell width */
+  max-height: 100%; /* Ensure the icons do not exceed the cell height */
+}
+

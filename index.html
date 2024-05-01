@@ -4,33 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tic Tac Toe Game</title>
-  <link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <!--Player input fields-->
   <div class="players">
-    <label for="player1">Player 1 Name:</label>
+    <label for="player1">Player Fish Name:</label>
     <input type="text" id="player1-input" placeholder="Player 1">
     <br>
-    <label for="player2">Player 2 Name:</label>
+    <label for="player2">Player Jelly Name:</label>
     <input type="text" id="player2-input" placeholder="Player 2">
     <br>
     <button id="start-button">Start/Restart Game</button>
   </div>
   <div class="grid">
-    <!-- Create 9 cells for the 3x3 grid -->
-    <div class="cell">1</div>
-    <div class="cell">2</div>
-    <div class="cell">3</div>
-    <div class="cell">4</div>
-    <div class="cell">5</div>
-    <div class="cell">6</div>
-    <div class="cell">7</div>
-    <div class="cell">8</div>
-    <div class="cell">9</div>
+    <!-- 9 cells for the 3x3 grid -->
+    <div class="cell" data-cell-index="0"></div>
+    <div class="cell" data-cell-index="1"></div>
+    <div class="cell" data-cell-index="2"></div>
+    <div class="cell" data-cell-index="3"></div>
+    <div class="cell" data-cell-index="4"></div>
+    <div class="cell" data-cell-index="5"></div>
+    <div class="cell" data-cell-index="6"></div>
+    <div class="cell" data-cell-index="7"></div>
+    <div class="cell" data-cell-index="8"></div>
 </div>
-
+<!-- Display the game result-->
 <div id="game-result"></div>
 
-  <script src="index.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
