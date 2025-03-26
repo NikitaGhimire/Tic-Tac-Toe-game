@@ -37,8 +37,8 @@ const GameController = (() => {
   let gameResultDisplay;
 
   const startGame = () => {
-    player1 = Player(document.getElementById('player1-input').value || 'Player 1', 'fish.png');
-    player2 = Player(document.getElementById('player2-input').value || 'Player 2', 'jelly.png');
+    player1 = Player(document.getElementById('player1-input').value || 'Player 1', '../assets/images/fish.png');
+    player2 = Player(document.getElementById('player2-input').value || 'Player 2', '../assets/images/jelly.png');
     currentPlayer = player1;
     gameboard = Gameboard();
     gameResultDisplay = document.getElementById('game-result');
@@ -133,3 +133,18 @@ document.getElementById('start-button').addEventListener('click', GameController
 document.querySelectorAll('.cell').forEach((cell, index) => {
   cell.addEventListener('click', () => GameController.handleCellClick(index));
 });
+
+function createBubbles() {
+  const bubbleCount = 20;
+  for (let i = 0; i < bubbleCount; i++) {
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    bubble.style.left = `${Math.random() * 100}%`;
+    bubble.style.width = `${Math.random() * 30 + 10}px`;
+    bubble.style.height = bubble.style.width;
+    bubble.style.animationDelay = `${Math.random() * 15}s`;
+    document.body.appendChild(bubble);
+  }
+}
+
+createBubbles();

@@ -1,0 +1,377 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #6246ea;
+  --secondary-color: #e45858;
+  --background-color: #fffffe;
+  --text-color: #2b2c34;
+  --grid-size: 450px;
+  --ocean-deep: #006994;
+  --ocean-light: #89CFF0;
+  --coral: #FF7F50;
+  --sand: #F4D03F;
+  --seafoam: #98FF98;
+  --wave-size: 450px;
+  --cell-size-desktop: 100px;
+  --cell-size-tablet: 80px;
+  --cell-size-mobile: 60px;
+  --footer-height: 60px;
+  --footer-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* Set body background color and center content */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(180deg, var(--ocean-light) 0%, var(--ocean-deep) 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Ocean Wave Animation */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%2389CFF0' fill-opacity='0.2' d='M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,112C672,107,768,149,864,154.7C960,160,1056,128,1152,112C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  animation: waveMove 15s linear infinite;
+  z-index: -1;
+}
+
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+h1 {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Style for the players section */
+.players {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+}
+
+.players label {
+  font-size: 18px;
+}
+
+.players input[type="text"] {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--ocean-deep);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+
+.players button {
+  background-color: var(--coral);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-top: 10px;
+}
+
+.players button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  background-color: var(--sand);
+}
+
+/* Style for the game grid */
+.grid {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, var(--cell-size-desktop));
+  grid-gap: 10px;
+  margin: 10px auto;
+  max-width: 100%;
+}
+
+.cell {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid var(--ocean-deep);
+  border-radius: 12px;
+  height: var(--cell-size-desktop);
+  width: var(--cell-size-desktop);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 24px;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 20px var(--seafoam);
+}
+
+#game-result {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-top: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* CSS for fixed size player icons */
+.player-icon {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Bubble Animation */
+.bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: rise 15s infinite;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) scale(2);
+    opacity: 0;
+  }
+}
+
+.game-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.footer {
+  height: var(--footer-height);
+  background: var(--footer-bg);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  color: white;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  /* Remove the brightness/invert filter since we're using dark background */
+  /* filter: brightness(0) invert(1); */
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Add these media queries at the end of your CSS file */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, var(--cell-size-tablet));
+        grid-gap: 8px;
+        padding: 15px;
+    }
+
+    .cell {
+        height: var(--cell-size-tablet);
+        width: var(--cell-size-tablet);
+    }
+
+    .player-icon {
+        width: 55px;
+        height: 55px;
+    }
+
+    .players {
+        padding: 1rem;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, var(--cell-size-mobile));
+        grid-gap: 5px;
+        padding: 10px;
+    }
+
+    .cell {
+        height: var(--cell-size-mobile);
+        width: var(--cell-size-mobile);
+        border-radius: 8px;
+    }
+
+    .player-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    #game-result {
+        font-size: 1.5rem;
+    }
+
+    .bubble {
+        display: none;
+    }
+
+    .game-container {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        height: auto;
+        padding: 0.5rem 0;
+    }
+}
+
+/* Add orientation support */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    body {
+        padding: 0.5rem;
+    }
+
+    .grid {
+        margin: 5px auto;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .players {
+        display: flex;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+    #game-result {
+        margin-top: 0.5rem;
+    }
+}
+

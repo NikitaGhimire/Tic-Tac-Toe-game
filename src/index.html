@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
+  <title>Tic Tac Toe Game</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <main class="game-container">
+    <h1>Ocean Tic-Tac-Toe</h1>
+    
+    <!--Player input fields-->
+    <div class="players">
+      <label for="player1">Player Fish Name:</label>
+      <input type="text" id="player1-input" placeholder="Player 1">
+      <br>
+      <label for="player2">Player Jelly Name:</label>
+      <input type="text" id="player2-input" placeholder="Player 2">
+      <br>
+      <button id="start-button">Start/Restart Game</button>
+    </div>
+    
+    <div class="grid">
+      <!-- 9 cells for the 3x3 grid -->
+      <div class="cell" data-cell-index="0"></div>
+      <div class="cell" data-cell-index="1"></div>
+      <div class="cell" data-cell-index="2"></div>
+      <div class="cell" data-cell-index="3"></div>
+      <div class="cell" data-cell-index="4"></div>
+      <div class="cell" data-cell-index="5"></div>
+      <div class="cell" data-cell-index="6"></div>
+      <div class="cell" data-cell-index="7"></div>
+      <div class="cell" data-cell-index="8"></div>
+    </div>
+    
+    <div id="game-result"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>Created with 💙 by Nikita Ghimire</p>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/nikita-ghimire-info" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/images/linkedin.png" alt="LinkedIn" class="social-icon">
+        </a>
+        <a href="https://github.com/NikitaGhimire/Tic-Tac-Toe-game" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/images/github.png" alt="GitHub" class="social-icon">
+        </a>
+        <a href="https://nikita.info.np" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/images/assets.png" alt="Portfolio" class="social-icon">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/script.js"></script>
+</body>
+</html>
