@@ -37,8 +37,8 @@ const GameController = (() => {
   let gameResultDisplay;
 
   const startGame = () => {
-    player1 = Player(document.getElementById('player1-input').value || 'Player 1', '../assets/images/fish.png');
-    player2 = Player(document.getElementById('player2-input').value || 'Player 2', '../assets/images/jelly.png');
+    player1 = Player(document.getElementById('player1-input').value || 'Player 1', './assets/images/fish.png');
+    player2 = Player(document.getElementById('player2-input').value || 'Player 2', './assets/images/jelly.png');
     currentPlayer = player1;
     gameboard = Gameboard();
     gameResultDisplay = document.getElementById('game-result');
